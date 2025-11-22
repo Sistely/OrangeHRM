@@ -147,21 +147,6 @@ robot --include smoke tests/web
 
 ---
 
-# 📌 5. Executar testes usando variáveis
-```
-robot -v BROWSER:chrome tests/web
-robot -v BROWSER:edge tests/web
-```
-
----
-
-# 📌 6. Executar em modo HEADLESS
-```
-robot -v HEADLESS:True tests/web
-```
-
----
-
 # 📌 7. Relatórios
 
 Após a execução, os relatórios estarão na raiz do projeto:
@@ -176,25 +161,10 @@ Após a execução, os relatórios estarão na raiz do projeto:
 
 ### 1. Clonar repositório
 ```
-git clone <url-do-repositorio>
+git clone https://github.com/Sistely/OrangeHRM.git
 ```
 
-### 2. Criar ambiente virtual
-```
-python -m venv venv
-```
-
-### 3. Ativar venv
-Windows:
-```
-venv\Scripts\activate
-```
-Mac/Linux:
-```
-source venv/bin/activate
-```
-
-### 4. Instalar dependências
+### 2. Instalar dependências
 ```
 pip install -r requirements.txt
 ```
