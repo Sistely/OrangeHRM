@@ -4,6 +4,8 @@ Resource   ../resources/keywords.robot
 Resource   ../resources/variables.robot
 Resource   ../resources/locators.robot
 
+Suite Setup    Verificar Navegador Aberto
+
 *** Test Cases ***
 Validar Cadastro
     Realizar login
@@ -12,7 +14,7 @@ Validar Cadastro
     IF    ${usuario_existe}
         Excluir Usuario
     END
-    Cadastrar Usuario
+    Cadastrar Usuario       ${NAMEUSER}
 
 Validar Alteracao
     Sleep   3s
@@ -21,32 +23,36 @@ Validar Alteracao
     IF      '${URL_ATUAL}' == '${URL_LOGIN}'
         Realizar login
         Acessar Admin
-    ELIF    '${URL_ATUAL}' != '${URL_ADMIN}'
+    ELSE IF    '${URL_ATUAL}' != '${URL_ADMIN}'
         Acessar Admin
+    END
+    ${usuario_existe2}=    Verificar Se Usuario Existe    ${NAMEUSER2}
+    IF    ${usuario_existe2}
+        Excluir Usuario
     END
     ${usuario_existe}=    Verificar Se Usuario Existe    ${NAMEUSER}
     IF    ${usuario_existe} == False
-        Cadastrar Usuario
+        Cadastrar Usuario       ${NAMEUSER}
         Pesquisar Usuario
-        Sleep 2s
-        END
+        Sleep   2s
+    END
     Altualizar Nome Usuario
 
-Excluir Usuario
+Validar Exclusao
     Sleep   3s
     ${URL_ATUAL}=    Get Location
 
     IF      '${URL_ATUAL}' == '${URL_LOGIN}'
         Realizar login
         Acessar Admin
-    ELIF    '${URL_ATUAL}' != '${URL_ADMIN}'
+    ELSE IF    '${URL_ATUAL}' != '${URL_ADMIN}'
         Acessar Admin
     END
     ${usuario_existe}=    Verificar Se Usuario Existe    ${NAMEUSER2}
     IF    ${usuario_existe} == False
-        Cadastrar Usuario
+        Cadastrar Usuario       ${NAMEUSER2}
         Pesquisar Usuario
-        Sleep 2s
+        Sleep   2s
     END
     Excluir Usuario
     

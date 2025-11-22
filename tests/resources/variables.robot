@@ -14,4 +14,4 @@ ${PASS_LOGIN}         admin123
 ${EMPLOYEE}         NONE
 ${NAMEUSER}         Sistely
 ${PASSUSER}         Sistely123
-${NAMEUSER2}        Sistelyn
+${NAMEUSER2}        Nazareth

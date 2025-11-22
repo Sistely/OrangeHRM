@@ -5,8 +5,14 @@ Resource   variables.robot
 Resource   locators.robot
 
 *** Keywords ***
+Verificar Navegador Aberto
+    ${status}=    Run Keyword And Return Status    Get Window Titles
+    IF    not ${status}
+        Open Browser    ${URL_LOGIN}    ${BROWSER}
+        Maximize Browser Window
+    END
+
 Realizar login
-    Open Browser    ${URL_LOGIN}    ${BROWSER}
     Wait Until Page Contains Element    ${LOGIN}    10s
     Input Text      ${USERNAME}     ${USER_LOGIN}
     Input Text      ${PASSWORD}     ${PASS_LOGIN}
@@ -20,6 +26,7 @@ Acessar Admin
     Wait Until Page Contains Element    ${LBLADMIN}     10s
 
 Excluir Usuario
+    Sleep   2s
     Click Element   ${BTNEXCLUIR}
     Click Element   ${CONEXCLUIR}
     Wait Until Element Is Visible    ${TOASTSUCCESS}    5s
@@ -29,9 +36,14 @@ Verificar Se Usuario Existe
     Location Should Be   ${URL_ADMIN}
     Wait Until Page Contains Element    ${LBLADMIN}     10s
 
+    Limpar Input    ${LBLUSERNAME}
+    Sleep   4s
+
     Input Text      ${LBLUSERNAME}    ${USER_CURRENT}
     Click Element   ${SEARCH}
     Sleep   1s
+
+    ${LBLUSERSEARCH}=    Set Variable    xpath=//div[@role="row"]//div[contains(text(),"${USER_CURRENT}")]
 
     ${existe}=    Run Keyword And Return Status
     ...    Page Should Contain Element    ${LBLUSERSEARCH}
@@ -73,6 +85,7 @@ Selecionar Employee Name
     [Return]    ${RESULTEMPLOYEE}
 
 Cadastrar Usuario
+    [Arguments]    ${nome}
     Click Element   ${ADD}
     Wait Until Page Contains Element   ${LBLADDUSER}   10s
     Click Element   ${USERROLE}
@@ -85,7 +98,7 @@ Cadastrar Usuario
     ${SELECTEMP}=   Selecionar Employee Name        ${EMPLOYEE}
     Wait Until Element Is Visible    ${SEARCHEEMP}      10s
     Click Element   ${SELECTEMP}
-    Input Text      ${LBLUSERNAME}      ${NAMEUSER}
+    Input Text      ${LBLUSERNAME}      ${nome}
     Input Text      ${PASSWORDCAD}      ${PASSUSER}
     Input Text      ${CONPASSWORD}      ${PASSUSER}        
     Click Element   ${SAVE}
