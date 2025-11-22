@@ -1,8 +1,7 @@
 # Projeto de Automação de Testes — Robot Framework + Python
 
 Bem-vindo ao projeto **Projeto OrangeHRM**, uma automação completa utilizando **Robot Framework**, **Python** e **SeleniumLibrary**.  
-Este README foi criado para orientar desde a instalação até a execução total dos testes.
-
+Este README foi criado por Sistely Nazareth de Sousa para orientar desde a instalação até a execução total dos testes.
 ---
 
 # 📌 1. Instalação do Python
