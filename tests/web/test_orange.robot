@@ -4,6 +4,8 @@ Resource   ../resources/keywords.robot
 Resource   ../resources/variables.robot
 Resource   ../resources/locators.robot
 
+Suite Setup    Verificar Navegador Aberto
+
 *** Test Cases ***
 Validar Cadastro
     Realizar login

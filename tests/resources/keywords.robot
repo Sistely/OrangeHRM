@@ -5,8 +5,14 @@ Resource   variables.robot
 Resource   locators.robot
 
 *** Keywords ***
+Verificar Navegador Aberto
+    ${status}=    Run Keyword And Return Status    Get Window Titles
+    IF    not ${status}
+        Open Browser    ${URL_LOGIN}    ${BROWSER}
+        Maximize Browser Window
+    END
+
 Realizar login
-    Open Browser    ${URL_LOGIN}    ${BROWSER}
     Wait Until Page Contains Element    ${LOGIN}    10s
     Input Text      ${USERNAME}     ${USER_LOGIN}
     Input Text      ${PASSWORD}     ${PASS_LOGIN}
