@@ -26,6 +26,7 @@ Acessar Admin
     Wait Until Page Contains Element    ${LBLADMIN}     10s
 
 Excluir Usuario
+    Sleep   2s
     Click Element   ${BTNEXCLUIR}
     Click Element   ${CONEXCLUIR}
     Wait Until Element Is Visible    ${TOASTSUCCESS}    5s
@@ -35,9 +36,14 @@ Verificar Se Usuario Existe
     Location Should Be   ${URL_ADMIN}
     Wait Until Page Contains Element    ${LBLADMIN}     10s
 
+    Limpar Input    ${LBLUSERNAME}
+    Sleep   4s
+
     Input Text      ${LBLUSERNAME}    ${USER_CURRENT}
     Click Element   ${SEARCH}
     Sleep   1s
+
+    ${LBLUSERSEARCH}=    Set Variable    xpath=//div[@role="row"]//div[contains(text(),"${USER_CURRENT}")]
 
     ${existe}=    Run Keyword And Return Status
     ...    Page Should Contain Element    ${LBLUSERSEARCH}
@@ -79,6 +85,7 @@ Selecionar Employee Name
     [Return]    ${RESULTEMPLOYEE}
 
 Cadastrar Usuario
+    [Arguments]    ${nome}
     Click Element   ${ADD}
     Wait Until Page Contains Element   ${LBLADDUSER}   10s
     Click Element   ${USERROLE}
@@ -91,7 +98,7 @@ Cadastrar Usuario
     ${SELECTEMP}=   Selecionar Employee Name        ${EMPLOYEE}
     Wait Until Element Is Visible    ${SEARCHEEMP}      10s
     Click Element   ${SELECTEMP}
-    Input Text      ${LBLUSERNAME}      ${NAMEUSER}
+    Input Text      ${LBLUSERNAME}      ${nome}
     Input Text      ${PASSWORDCAD}      ${PASSUSER}
     Input Text      ${CONPASSWORD}      ${PASSUSER}        
     Click Element   ${SAVE}

@@ -29,7 +29,6 @@ ${CONPASSWORD}      xpath=//label[normalize-space()="Confirm Password"]/ancestor
 ${SAVE}             xpath=//button[normalize-space()="Save"]
 ${TOASTSUCCESS}     xpath=//p[contains(@class,"oxd-toast-content-text") and text()="Success"]
 ${SEARCH}           xpath=//button[normalize-space()="Search"]
-${LBLUSERSEARCH}    xpath=//div[@role="row"]//div[contains(text(), "${NAMEUSER}")]
 ${BTNEXCLUIR}       xpath=//button[i[contains(@class,"bi-trash")]]
 ${CONEXCLUIR}       xpath=//button[contains(., "Yes, Delete")]
 ${TOASTINFO}        xpath=//p[contains(@class,"oxd-toast-content-text") and text()="Info"]
