@@ -132,12 +132,12 @@ robot tests/web
 
 ## 🔹 4.2 Executar apenas um arquivo específico
 ```
-robot tests/web/login.robot
+robot tests/web/test_orange.robot
 ```
 
 ## 🔹 4.3 Executar apenas um cenário
 ```
-robot --test "Nome do Cenário" tests/web/login.robot
+robot --test "Nome do Cenário" tests/web/test_orange.robot
 ```
 
 Ou utilizando tags:
