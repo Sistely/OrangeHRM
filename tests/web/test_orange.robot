@@ -23,14 +23,14 @@ Validar Alteracao
     IF      '${URL_ATUAL}' == '${URL_LOGIN}'
         Realizar login
         Acessar Admin
-    ELIF    '${URL_ATUAL}' != '${URL_ADMIN}'
+    ELSE IF    '${URL_ATUAL}' != '${URL_ADMIN}'
         Acessar Admin
     END
     ${usuario_existe}=    Verificar Se Usuario Existe    ${NAMEUSER}
     IF    ${usuario_existe} == False
         Cadastrar Usuario
         Pesquisar Usuario
-        Sleep 2s
+        Sleep   2s
         END
     Altualizar Nome Usuario
 
