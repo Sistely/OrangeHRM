@@ -1,0 +1,68 @@
+##############################
+# ARQUIVOS DO ROBOT FRAMEWORK
+##############################
+
+# Arquivos gerados após execução dos testes
+output.xml
+log.html
+report.html
+
+# Capturas automáticas (SeleniumLibrary)
+*.png
+
+# Diretórios de resultados
+output/
+logs/
+results/
+reports/
+
+##############################
+# AMBIENTE PYTHON
+##############################
+
+# Ambiente virtual (caso use)
+venv/
+.env/
+env/
+
+# Cache do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+##############################
+# ARQUIVOS TEMPORÁRIOS
+##############################
+
+*.log
+*.tmp
+*.cache
+
+##############################
+# ARQUIVOS E PASTAS DO WINDOWS
+##############################
+
+Thumbs.db
+desktop.ini
+
+##############################
+# IDEs E EDITORES
+##############################
+
+# VSCode
+.vscode/
+
+# PyCharm
+.idea/
+
+##############################
+# OUTROS ÍTENS DO PROJETO
+##############################
+
+# Arquivos ZIPs, exportações, backups
+*.zip
+*.tar
+*.tar.gz
+*.bak
+*.old
